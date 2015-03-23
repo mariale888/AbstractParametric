@@ -16,6 +16,7 @@ void ofApp::setup(){
     makeObj();
     
     saveLine = false;
+    drawLine = true;
     
     //setting gui
     setUpGUI();
@@ -31,7 +32,8 @@ void ofApp::draw(){
     ofBackground(255);
     
     ofSetColor(0);
-    line.draw();
+    if(drawLine)
+        line.draw();
     
     ofPushMatrix();
     cam.begin();
@@ -137,7 +139,7 @@ void ofApp::updateObj()
         if(z < minZ) minZ = z;
         addCellSeed(con, newC, i, true);
     }
-    cout<<minZ<<" "<<maxZ<<endl;
+    //cout<<minZ<<" "<<maxZ<<endl;
     
     if(subdivideMe)
     {
@@ -188,6 +190,8 @@ void ofApp::updateObj()
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
 
+    if(key == 'd')
+        drawLine = !drawLine;
     if(key == ' ')
     {
         subdivideMe = true;

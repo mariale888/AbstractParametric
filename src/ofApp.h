@@ -40,6 +40,8 @@ class ofApp : public ofBaseApp{
     
     //my line obj generator
     ofPolyline line;
+    bool drawLine;
+    
     bool subdivideMe;  // subdivides current model
     vector<ofPoint>oldSubs;
     bool saveLine;
